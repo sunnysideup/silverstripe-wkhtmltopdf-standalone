@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Automatically detect base path relative to this script
+BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Support either structure: .../usr/local/bin/wkhtmltopdf or .../bin/wkhtmltopdf
+BIN=""
+if [[ -x "$BASE/wkhtmltox/usr/local/bin/wkhtmltopdf" ]]; then
+  BIN="$BASE/wkhtmltox/usr/local/bin/wkhtmltopdf"
+elif [[ -x "$BASE/wkhtmltox/bin/wkhtmltopdf" ]]; then
+  BIN="$BASE/wkhtmltox/bin/wkhtmltopdf"
+else
+  echo "❌ wkhtmltopdf binary not found under $BASE/wkhtmltox" >&2
+  exit 1
+fi
+
+# --- Library paths ---
+# Always include the global container path first
+GLOBAL_LIBS="/container/application/lib/local-libs/usr/lib/x86_64-linux-gnu"
+
+# Force include the legacy libjpeg path
+JPEG_LIB="/container/application/lib/local-libs/usr/lib/x86_64-linux-gnu"
+if [[ -d "$JPEG_LIB" ]]; then
+  export LD_LIBRARY_PATH="$JPEG_LIB:${LD_LIBRARY_PATH:-}"
+else
+  echo "⚠️ Warning: $JPEG_LIB not found" >&2
+fi
+
+# Optional: fontconfig path
+if [[ -d "$BASE/wkhtmltox/usr/local/share/fonts" ]]; then
+  export FONTCONFIG_PATH="$BASE/wkhtmltox/usr/local/share/fonts"
+fi
+
+# Execute with all arguments
+exec "$BIN" "$@"
