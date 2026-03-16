@@ -10,9 +10,9 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "silverstripe/framework": "^5.0"
+        "silverstripe/framework": "^6.0"
     },
-    "require-dev": {},
+    "require-dev": [],
     "autoload": {
         "psr-4": {
             "Sunnysideup\\WKHtmlToPdfStandAlone\\": "src/"
