@@ -1,33 +1,33 @@
 {
-    "name": "sunnysideup/wkhtmltopdf-standalone",
-    "description": "Brings together a bunch of binaries for a shared server where you do not have the ability to install it",
-    "type": "silverstripe-vendormodule",
-    "keywords": [
-        "wkpdftohtml",
-        "pdf maker",
-        "install",
-        "shared hosting"
-    ],
-    "license": "BSD-3-Clause",
-    "require": {
-        "silverstripe/framework": "^6.0"
-    },
-    "require-dev": [],
-    "autoload": {
-        "psr-4": {
-            "Sunnysideup\\WKHtmlToPdfStandAlone\\": "src/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "bin": [
-        "bin/wkhtmltopdf"
-    ],
-    "authors": [
-        {
-            "name": "Nicolaas Thiemen Francken",
-            "email": "modules@sunnysideup.co.nz",
-            "role": "lead developer"
-        }
-    ]
+  "name": "sunnysideup/wkhtmltopdf-standalone",
+  "description": "Brings together a bunch of binaries for a shared server where you do not have the ability to install it",
+  "type": "silverstripe-vendormodule",
+  "keywords": [
+    "wkpdftohtml",
+    "pdf maker",
+    "install",
+    "shared hosting"
+  ],
+  "license": "BSD-3-Clause",
+  "require": {
+    "silverstripe/framework": "^6.0"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "Sunnysideup\\WKHtmlToPdfStandAlone\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "bin": [
+    "bin/wkhtmltopdf"
+  ],
+  "authors": [
+    {
+      "name": "Nicolaas Thiemen Francken",
+      "email": "modules@sunnysideup.co.nz",
+      "role": "lead developer"
+    }
+  ]
 }
